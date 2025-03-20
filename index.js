@@ -137,5 +137,16 @@ function loadPlugins(sock) {
         }
     });
 }
+// Example: Auto-reply to "hello"
+    sock.ev.on("messages.upsert", async ({ messages }) => {
+        const msg = messages[0];
+        if (!msg.message || msg.key.fromMe) return;
+
+        const text = msg.message.conversation || msg.message.extendedTextMessage?.text;
+        if (text?.toLowerCase() === "hello") {
+            await sendMessage(sock, msg.key.remoteJid, "👋 Hi there!");
+        }
+    });
+}
 // Start the bot
 connectToWhatsApp().catch(err => console.error("❌ Bot Error:", err))
