@@ -121,6 +121,21 @@ async function connectToWhatsApp() {
 
     return sock;
 }
+// Load all plugins
+    loadPlugins(sock);
+}
 
+function loadPlugins(sock) {
+    const pluginPath = path.join(__dirname, "plugins");
+    fs.readdirSync(pluginPath).forEach((file) => {
+        if (file.endsWith(".js")) {
+            const plugin = require(`./plugins/${file}`);
+            if (typeof plugin === "function") {
+                plugin(sock);
+                console.log(`🔹 Plugin Loaded: ${file}`);
+            }
+        }
+    });
+}
 // Start the bot
 connectToWhatsApp().catch(err => console.error("❌ Bot Error:", err))
