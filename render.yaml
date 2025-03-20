@@ -1,0 +1,20 @@
+services:
+  - name: dessa-md-bot
+    type: web
+    env: node
+    repo: https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME
+    branch: main
+    plan: free
+    buildCommand: |
+      npm install
+    startCommand: |
+      node index.js
+    envVars:
+      - key: SESSION_ID
+        sync: false
+      - key: DATABASE_URL
+        value: "sqlite://database.db"
+      - key: BOT_INFO
+        value: "DESSA-MD;sathanic;919778158839"
+      - key: AUTO_STATUS_VIEWS
+        value: "false"
