@@ -103,6 +103,24 @@ sock.ev.on('messages.upsert', async ({ messages }) => {
             }
         }
     });
+const { default: makeWASocket, useMultiFileAuthState } = require('@whiskeysockets/baileys');
+
+async function connectToWhatsApp() {
+    const { state, saveCreds } = await useMultiFileAuthState('session'); // Load saved session
+    const sock = makeWASocket({
+        auth: state,
+    });
+
+    sock.ev.on('creds.update', saveCreds);
+
+    sock.ev.on('connection.update', ({ connection }) => {
+        if (connection === 'open') {
+            console.log("✅ Bot is now connected to WhatsApp!");
+        }
+    });
+
+    return sock;
+}
 
 // Start the bot
-connectToWhatsApp().catch(err => console.error("❌ Bot Error:", err));
+connectToWhatsApp().catch(err => console.error("❌ Bot Error:", err))
