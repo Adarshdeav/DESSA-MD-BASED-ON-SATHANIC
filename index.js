@@ -76,6 +76,33 @@ async function processSticker(sock, sender, msg, type) {
     fs.unlinkSync(outputPath); 
     console.log("✅ Sticker sent!");
 }
+sock.ev.on('messages.upsert', async ({ messages }) => {
+        const msg = messages[0];
+        if (!msg.message || msg.key.fromMe) return;
+
+        const sender = msg.key.remoteJid;
+        const messageType = Object.keys(msg.message)[0];
+
+        console.log(`📩 New Message from ${sender}: ${messageType}`);
+
+        if (messageType === 'conversation' || messageType === 'extendedTextMessage') {
+            const text = msg.message.conversation || msg.message.extendedTextMessage.text;
+            
+            if (text.toLowerCase() === '!list' || text.toLowerCase() === '!help') {
+                const commandList = `
+🤖 *DESSA-MD Bot Commands*
+━━━━━━━━━━━━━━━━━━
+📌 *!ping* - Check bot response time
+📌 *!info* - Get bot system info
+📌 *!sticker* - Convert image/video to sticker
+📌 *!help* or *!list* - Show this command list
+━━━━━━━━━━━━━━━━━━
+🔗 *More commands coming soon!*
+                `;
+                await sock.sendMessage(sender, { text: commandList });
+            }
+        }
+    });
 
 // Start the bot
 connectToWhatsApp().catch(err => console.error("❌ Bot Error:", err));
