@@ -1,0 +1,88 @@
+{
+  "name": "DESSA-MD",
+  "version": "2.0.0",
+  "description": "DESSA Multi-Device WhatsApp Bot",
+  "logo": "https://imgur.com/a/S6gaWJ0.jpeg",
+  "keywords": ["whatsapp", "bot", "multi-device"],
+  "repository": "https://github.com/sathanicc/DESSA-MD-BASED-ON-SATHANIC",
+  "website": "https://github.com/sathanicc/DESSA-MD-BASED-ON-SATHANIC",
+  "success_url": "https://github.com/sathanicc/DESSA-MD-BASED-ON-SATHANIC",
+  "stack": "container",
+  "env": {
+    "BOT_INFO": {
+      "description": "Dessa-Md;sathanic;919778158839;https://imgur.com/a/S6gaWJ0",
+      "required": true,
+      "value": "DESSA-MD;Sathanicc;https://imgur.com/a/S6gaWJ0.jpeg"
+    },
+    "AUDIO_DATA": {
+      "description": "D E S S / M D",
+      "required": true,
+      "value": "DESSA-MD;Sathanicc;https://imgur.com/a/S6gaWJ0.jpeg"
+    },
+    "WARN_COUNT": {
+      "description": "Maximum warnings before action",
+      "required": true,
+      "value": "3"
+    },
+    "SERVER": {
+      "description": "Deploying server",
+      "required": true,
+      "value": "heroku"
+    },
+    "AUTO_STATUS_VIEWS": {
+      "description": "Enable auto status views",
+      "required": true,
+      "value": "false"
+    },
+    "MEDIA_DATA": {
+      "description": "Media data used in list menu",
+      "required": true,
+      "value": "List Menu;DESSA-MD;https://imgur.com/a/S6gaWJ0.jpeg"
+    },
+    "HANDLER": {
+      "description": "Command handler (prefix for bot commands)",
+      "required": true,
+      "value": "."
+    },
+    "SESSION_ID": {
+      "description": "Session ID for the bot",
+      "required": true
+    },
+    "WORK_TYPE": {
+      "description": "Work type (public or private)",
+      "required": true,
+      "value": "Public"
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Heroku app name",
+      "required": true
+    },
+    "HEROKU_API_KEY": {
+      "description": "Heroku account API key",
+      "required": true
+    },
+    "STICKER_PACKNAME": {
+      "description": "Sticker pack name",
+      "required": true,
+      "value": "DESSA-MD;Sathanicc"
+    },
+    "SUDO": {
+      "description": "Owner number of the bot",
+      "required": false,
+      "value": "917907738112,919778158839"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku-community/apt"
+    },
+    {
+      "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
+    }
+  ]
+}
