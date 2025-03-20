@@ -11,3 +11,8 @@ Click the button below to fork this repository and start using it:
     <img src="https://img.shields.io/github/forks/sathanicc/DESSA-MD-BASED-ON-SATHANIC?style=social" alt="Fork">
   </a>
 </p>
+
+## 🔹 Scan the QR Code to Connect  
+Click the link below to scan the QR code and connect your WhatsApp bot:  
+
+[![Scan QR](https://your-hosted-image-link.com/qr.png)](https://your-hosted-image-link.com/qr.png)
