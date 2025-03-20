@@ -1,2 +1,4 @@
 ### DESSA-MD-BASED-ON-SATHANIC
-![DESSA MD](https://imgur.com/a/2FMhT3f.jpg)
+<p align="center">
+  <img src="https://i.imgur.com/PmfMtfa.jpeg" width="400"/>
+</p>
