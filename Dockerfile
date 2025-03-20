@@ -1,5 +1,5 @@
-FROM quay.io/loki-xer/jarvis-md:latest
+FROM node:18-alpine
 RUN https://github.com/sathanicc/DESSA-MD-BASED-ON-SATHANIC
 WORKDIR /root/Jarvis-md/
-RUN yarn install --network-concurrency 1
-CMD ["npm", "start"]
+RUN npm install --omit=dev
+CMD ["node", "index.js"]
